@@ -1,2 +1,0 @@
-# Conflictor
-Created with CodeSandbox

@@ -1,0 +1,112 @@
+body {
+  background: rgb(214, 214, 214);
+  color: #333;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+h1 {
+  font-weight: 300;
+  letter-spacing: 1px;
+  background: #333;
+  color: #999;
+  padding: 14px;
+  margin: 0;
+}
+
+.container {
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  border-right: 1px dashed grey;
+  display: flex;
+}
+
+b {
+  font-weight: 300;
+  font-size: 0.9rem;
+  letter-spacing: 0.1rem;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  height: 100vh;
+  overflow: auto;
+}
+
+li {
+  display: flex;
+  border-bottom: 1px solid #999;
+}
+
+.col-sections li:hover {
+  background-color: #fff;
+}
+.sec-num {
+  padding: 6%;
+  min-width: 32px;
+}
+
+.col-sections li div {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.col-sections li div div {
+  padding: 6px;
+  display: flex;
+  flex-direction: row;
+}
+
+.conflict {
+  background: rgb(175, 175, 175);
+}
+
+.count {
+  display: flex;
+  flex-direction: row;
+}
+.count:hover {
+  background-color: rgb(214, 214, 214);
+}
+.col-count li b {
+  font-size: smaller;
+  padding: 6px 10px;
+}
+
+.desc {
+  border-left: 4px solid rgb(214, 214, 214);
+}
+.cf-desc {
+  display: flex;
+  flex-direction: row;
+  background: rgb(214, 214, 214);
+  border-left: 4px solid #999;
+}
+
+b:nth-child(3) {
+  color: white;
+  background-color: rgb(60, 60, 60);
+}
+.noncon b:nth-child(3) {
+  background-color: rgb(100, 96, 96);
+  align-self: flex-end;
+  flex-grow: 1;
+}
+.count b:nth-child(2) {
+  /* Hard fix */
+  width: 120px;
+  background: rpba(20, 20, 20, 0.6);
+}
+
+.count b {
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.col-sections,
+.col-count {
+  padding: 0;
+  min-width: 300px;
+}
