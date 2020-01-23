@@ -1,3 +1,3 @@
 # Conflictor
 
-Sandbox app for experimental inventory conflict resolution UI.
+Sandbox code for experimental inventory conflict resolution UI.
