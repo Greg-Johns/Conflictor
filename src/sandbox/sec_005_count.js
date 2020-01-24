@@ -41,7 +41,7 @@ export default (sec_005 = [
   },
   {
     desc: "2X10-12' TREX ENH SADDLE SQ",
-    counts: [{ qty: 42, counter: "Jim" }],
+    counts: [{ qty: 42, counter: "Jim" }, { qty: 47, counter: "Dewight" }],
     resolve: 124
   },
   {
@@ -120,7 +120,7 @@ export default (sec_005 = [
   },
   {
     desc: "2X10-12' TREX ENH SADDLE SQ",
-    counts: [{ qty: 42, counter: "Jim" }],
+    counts: [{ qty: 42, counter: "Jim" }, { qty: 47, counter: "Dewight" }],
     resolve: 124
   },
   {

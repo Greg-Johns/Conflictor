@@ -10,27 +10,18 @@ export default function Conflictor() {
   const SectionList = () =>
     sections.map(sec => (
       <li key={sec.num}>
-        <span className="sec-num">
+        <span className={sec.counts.length > 1 ? "sec-num-cx" : "sec-num"}>
           <b>{sec.num}</b>
         </span>
         <div>
-          {sec.counts.length > 1 ? (
-            sec.counts.map((count, i) => (
-              <div key={i} className="conflict">
-                <b>{count.counter}</b>
-                <b>
-                  {count.timeOut} | {count.timeIn}
-                </b>
-              </div>
-            ))
-          ) : (
-            <div>
-              <b>{sec.counts[0].counter}</b>
+          {sec.counts.map((count, i) => (
+            <div key={i}>
+              <b>{count.counter}</b>
               <b>
-                {sec.counts[0].timeOut} | {sec.counts[0].timeIn}
+                {count.timeOut} | {count.timeIn}
               </b>
             </div>
-          )}
+          ))}
         </div>
       </li>
     ));
@@ -50,13 +41,15 @@ export default function Conflictor() {
             </div>
           ))}
         </div>
-        <b>{sku.resolve}</b>
+        <b>
+          <input value={sku.resolve} />
+        </b>
       </li>
     ));
 
   return (
     <div>
-      <h1>Conflictor</h1>
+      <h1>• Conflictor •</h1>
       <div className="container">
         <ul className="col-sections">
           <SectionList />
