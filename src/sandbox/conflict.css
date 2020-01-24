@@ -1,5 +1,13 @@
+:root {
+  --base-bg: rgb(234, 234, 234);
+  --selected-bg: lightgray;
+  --conflict-bg: rgb(200, 200, 200);
+  --cx: rgba(240, 240, 200, 0.8);
+  --light: rgba(220, 220, 220, 0.6);
+}
+
 body {
-  background: rgb(214, 214, 214);
+  background-color: var(--base-bg);
   color: #333;
   padding: 0;
   margin: 0;
@@ -7,19 +15,35 @@ body {
 }
 h1 {
   font-weight: 300;
-  letter-spacing: 1px;
+  font-family: Georgia, serif;
+  letter-spacing: 10px;
   background: #333;
   color: #999;
-  padding: 14px;
+  padding: 26px;
+  padding-bottom: 20px;
+  border-bottom: 4px double #999;
   margin: 0;
+  position: fixed;
+  width: 100vw;
+  z-index: 10;
+  box-shadow: 0 0 4px #333;
+}
+h1::before {
+  position: absolute;
+  letter-spacing: 4px;
+  font-size: 0.8rem;
+  top: 14px;
+  right: 54.8%;
+  content: "The";
 }
 
 .container {
-  width: 900px;
+  width: 800px;
   margin-left: auto;
   margin-right: auto;
   border-right: 1px dashed grey;
   display: flex;
+  padding-top: 85px;
 }
 
 b {
@@ -40,19 +64,32 @@ li {
   border-bottom: 1px solid #999;
 }
 
+.col-sections li {
+  min-height: 52px;
+}
 .col-sections li:hover {
-  background-color: #fff;
+  background-color: rgba(180, 180, 180, 0.4);
 }
 .sec-num {
-  padding: 6%;
-  min-width: 32px;
+  /* background-color: rgb(234, 253, 249); */
+  /* border-left: 6px solid rgba(194, 197, 204, .4); */
 }
-
-.col-sections li div {
-  flex-grow: 1;
+.sec-num,
+.sec-num-cx {
+  max-width: 50px;
+}
+.sec-num-cx {
+  background-color: var(--cx);
+  border-left: 4px solid var(--conflict-bg);
+}
+.col-sections span,
+.col-sections div {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
 }
+
 .col-sections li div div {
   padding: 6px;
   display: flex;
@@ -60,49 +97,102 @@ li {
 }
 
 .conflict {
-  background: rgb(175, 175, 175);
+  background: var(--conflict-bg);
+}
+.col-sections div {
+  /* background: var(--selected-bg); */
+  border-bottom: 1px dashed #999;
+}
+.col-sections div:last-child {
+  border-bottom: none;
 }
 
 .count {
   display: flex;
   flex-direction: row;
 }
-.count:hover {
-  background-color: rgb(214, 214, 214);
+
+.conflict .count {
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+.conflict .count:last-child {
+  border-bottom: none;
+}
+.conflict .count:hover {
+  background-color: var(--cx);
+}
+.conflict .count:hover::after {
+  content: "•";
+  font-size: 1.4rem;
+  margin-top: 2px;
+  margin-left: -16px;
 }
 .col-count li b {
-  font-size: smaller;
   padding: 6px 10px;
+}
+.col-count li b:nth-child(1) {
+  font-size: 0.7rem;
 }
 
 .desc {
-  border-left: 4px solid rgb(214, 214, 214);
+  border-left: 5px solid var(--selected-bg);
 }
 .cf-desc {
   display: flex;
-  flex-direction: row;
-  background: rgb(214, 214, 214);
-  border-left: 4px solid #999;
+  /* flex-direction: row; */
+  flex-direction: column;
+  justify-content: center;
+  background: var(--cx);
+  border-left: 5px solid var(--conflict-bg);
 }
 
-b:nth-child(3) {
-  color: white;
-  background-color: rgb(60, 60, 60);
-}
-.noncon b:nth-child(3) {
-  background-color: rgb(100, 96, 96);
-  align-self: flex-end;
-  flex-grow: 1;
-}
 .count b:nth-child(2) {
   /* Hard fix */
   width: 120px;
   background: rpba(20, 20, 20, 0.6);
 }
+b:nth-child(3) {
+  color: white;
+  background-color: rgb(60, 60, 60);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 44px;
+  /* border-bottom: 3px solid rgb(100, 96, 96); */
+}
+b:nth-child(3):hover {
+  background-color: var(--cx);
+  border-bottom: 0px solid var(--cx);
+}
+.conflict b:nth-child(3):hover::after {
+  padding: 0;
+  margin: 0;
+  color: #333;
+  content: "•";
+  font-size: 0.9rem;
+}
+.noncon b:nth-child(3) {
+  background-color: rgb(100, 96, 96);
+}
+input {
+  text-align: center;
+  color: white;
+  padding: 2px;
+  border-radius: 4px;
+  border: 1px solid #666;
+  background: none;
+  z-index: 1;
+}
+input:hover {
+  color: var(--cx);
+  color: #333;
+  background-color: white;
+  border: 1px solid #999;
+}
 
-.count b {
-  text-align: left;
-  border-bottom: 1px solid #ccc;
+.col-count {
+  background-color: var(--selected-bg);
 }
 
 .col-sections,
