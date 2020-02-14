@@ -1,36 +1,32 @@
 import React from "react";
 import sectionsData from "./sectionsData";
-import sec_005 from "./sec_005_count";
+import dat from "./dat";
 import "./conflict.css";
 
 export default function Conflictor() {
   const sections = sectionsData;
-  const sec_005_count = sec_005;
+  const sec_005_count = dat;
+
+  setBg = e => {
+    e.target.setAttribute("style", "background: #ccc;");
+    console.log("sets");
+  };
 
   const SectionList = () =>
     sections.map(sec => (
-      <li key={sec.num}>
-        <span className="sec-num">
+      <li key={sec.num} className="on" onClick={setBg}>
+        <span className={sec.counts.length > 1 ? "sec-num-cx" : "sec-num"}>
           <b>{sec.num}</b>
         </span>
         <div>
-          {sec.counts.length > 1 ? (
-            sec.counts.map((count, i) => (
-              <div key={i} className="conflict">
-                <b>{count.counter}</b>
-                <b>
-                  {count.timeOut} | {count.timeIn}
-                </b>
-              </div>
-            ))
-          ) : (
-            <div>
-              <b>{sec.counts[0].counter}</b>
+          {sec.counts.map((count, i) => (
+            <div key={i}>
+              <b>{count.counter}</b>
               <b>
-                {sec.counts[0].timeOut} | {sec.counts[0].timeIn}
+                {count.timeOut} | {count.timeIn}
               </b>
             </div>
-          )}
+          ))}
         </div>
       </li>
     ));
@@ -43,21 +39,41 @@ export default function Conflictor() {
       >
         <b className={sku.counts.length > 1 ? "cf-desc" : "desc"}>{sku.desc}</b>
         <div>
-          {sku.counts.map((count, i) => (
-            <div className="count" key={i}>
-              <b>{count.qty}</b>
-              <b>{count.counter}</b>
-            </div>
-          ))}
+          {sku.counts.length > 1 ? (
+            sku.counts.map((count, i) => (
+              <div className="count" key={i}>
+                <b>{count.qty}</b>
+                <b>{count.counter}</b>
+              </div>
+            ))
+          ) : (
+            <b />
+          )}
         </div>
-        <b>{sku.resolve}</b>
+        <b>
+          <input value={sku.resolve} />
+        </b>
       </li>
     ));
 
   return (
     <div>
-      <h1>Conflictor</h1>
+      <h1>• Conflictor •</h1>
       <div className="container">
+        <header>
+          <div className="sections-sec">
+            <h4>Sections:</h4>
+            <div>No.</div>
+            <div>Counter</div>
+            <div>In | Out</div>
+          </div>
+          <div className="counts-sec">
+            <h4>Counts</h4>
+            <div>Description</div>
+            <div>Conflict</div>
+            <div>Resolve</div>
+          </div>
+        </header>
         <ul className="col-sections">
           <SectionList />
         </ul>
