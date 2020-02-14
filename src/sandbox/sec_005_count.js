@@ -121,6 +121,7 @@ export default (sec_005 = [
   {
     desc: "2X3X10' GALV FLASHING",
     counts: [{ qty: 124, counter: "Jim" }, { qty: 47, counter: "Dewight" }],
+
     resolve: 124
   },
   {
