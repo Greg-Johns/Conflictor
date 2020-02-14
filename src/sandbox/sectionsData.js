@@ -80,5 +80,30 @@ export default (sectionsData = [
     num: "015",
     counts: [{ counter: "Dewight", timeOut: "2:15", timeIn: "3:02" }],
     active: true
+  },
+  {
+    num: "016",
+    counts: [{ counter: "Dewight", timeOut: "2:15", timeIn: "3:02" }],
+    active: true
+  },
+  {
+    num: "017",
+    counts: [{ counter: "Dewight", timeOut: "2:15", timeIn: "3:02" }],
+    active: true
+  },
+  {
+    num: "018",
+    counts: [{ counter: "Dewight", timeOut: "2:15", timeIn: "3:02" }],
+    active: true
+  },
+  {
+    num: "019",
+    counts: [{ counter: "Dewight", timeOut: "2:15", timeIn: "3:02" }],
+    active: true
+  },
+  {
+    num: "020",
+    counts: [{ counter: "Dewight", timeOut: "2:15", timeIn: "3:02" }],
+    active: true
   }
 ]);
